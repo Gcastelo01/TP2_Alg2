@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/test_vector_ptr.dir/unit/vector_ptr.c.o CMakeFiles/test_utilities.dir/unit/test_utilities.c.o -o test_vector_ptr  ../src/libigraph.a ../src/libigraph.a -lm /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 

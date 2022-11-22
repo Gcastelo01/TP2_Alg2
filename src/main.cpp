@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include "instance-generator.hpp"
 
 using namespace std;
 
