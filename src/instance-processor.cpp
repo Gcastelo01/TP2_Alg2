@@ -13,7 +13,9 @@ InstanceProcessor::~InstanceProcessor(){}
  * \param s número da instância que está sendo processada no momento
 */
 void InstanceProcessor::processInstanceIntoVector(string filename, int s, map<int, vector<pair<int, int>>>* assets){
-  ifstream file(filename, fstream::in);
+  ifstream file;
+
+  file.open(filename);
 
   int size;
   vector<pair<int, int>> instance;
