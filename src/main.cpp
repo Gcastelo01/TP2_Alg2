@@ -18,7 +18,7 @@ void use(){
   cout << "-g -> Faz com que o programa não gere novas instânicas de teste" << endl;
   cout << "-m -> Utilizar distância de Manhattan. Caso esta opção não seja utilizada, o programa utilizará da distância euclidiana por padrão." << endl;
   cout << "-t -> Cronometra o tempo total de execução do Programa." << endl;
-  cout << "-e -> Cronometra o tempo de execução de cada Algoritmo separadamente." << endl;
+  cout << "-P -> Algoritmo não imprime a matriz de adjacência nem o Caminho Mínimo." << endl;
   cout << "-v -> O programa irá imprimir mais informações sobre seu status ao longo da execução" << endl << endl;
 
   exit(0);
@@ -28,7 +28,7 @@ void parse_args(map<char, string>* args, int argc, char** argv){
   int c;
   extern char* optarg;
 
-  while((c = getopt(argc, argv, "hgtvemi:")) != EOF){
+  while((c = getopt(argc, argv, "hgtvemPi:")) != EOF){
     switch(c){
       case 'h':
         args->insert(pair<char, string>('h', "sim"));
@@ -45,6 +45,10 @@ void parse_args(map<char, string>* args, int argc, char** argv){
 
       case 'e':
         args->insert(pair<char, string>('e', "sim"));
+        break;
+
+      case 'P':
+        args->insert(pair<char, string>('P', "sim"));
         break;
 
       case 'i':
@@ -98,7 +102,7 @@ int main(int argc, char* argv[]){
       
       ip.processInstanceIntoVector(a, instance, &instances);
 
-      Solver s(instances[instance], pow(2, instance), (args['v'] == "sim"), (args['m'] == "sim"));
+      Solver s(instances[instance], pow(2, instance), (args['v'] == "sim"), (args['m'] == "sim"), !(args['P'] == "sim"));
 
       s.solve();
 
@@ -120,7 +124,7 @@ int main(int argc, char* argv[]){
 
       // Rodando todas as Instâncias, uma a uma 
       for(int i = 4; i < 11; i++){
-        Solver s(instances[i], pow(2, i), (args['v'] == "sim"), (args['m'] == "sim"));
+        Solver s(instances[i], pow(2, i), (args['v'] == "sim"), (args['m'] == "sim"), !(args['P'] == "sim"));
 
         s.solve();
       }

@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/test_igraph_atlas.dir/unit/igraph_atlas.c.o CMakeFiles/test_utilities.dir/unit/test_utilities.c.o -o test_igraph_atlas  ../src/libigraph.a ../src/libigraph.a -lm /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.so 
