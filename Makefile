@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -std=c++11 -I/usr/local/include/igraph -L/usr/local/lib -pthread
+CFLAGS = -Wall -std=c++11 -O3 -I/usr/local/include/igraph -L/usr/local/lib -pthread
 LIB =  -ligraph -lm -lstdc++ -lgomp -lpthread
 EXEC = ./main
 OBJ = ./bin
@@ -21,6 +21,7 @@ ${OBJ}/instance-processor.o: ${INCLUDE}/instance-processor.hpp ${SRC}/instance-p
 
 ${OBJ}/solvers.o: ${INCLUDE}/solvers.hpp ${SRC}/solvers.cpp 
 	${CC} ${CFLAGS} -I ${INCLUDE} -c ${SRC}/solvers.cpp -o ${OBJ}/solvers.o ${LIB}
+
 
 clean: 
 	rm -rf ${OBJ}/*
